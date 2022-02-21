@@ -42,6 +42,20 @@ public class LkTree<T extends Comparable> {
         }
     }
 
+    public int height() {
+        return height(root);
+    }
+
+    private int height(LkTreeNode node) {
+        if(node == null) {
+            return 0;
+        }
+        return 1 + Math.max(
+                height(node.getLeft()),
+                height(node.getRight())
+        );
+    }
+
     @Override
     public String toString() {
         return "tree: "+root;
