@@ -1,12 +1,15 @@
 package ru.bgpu.lk.tree;
 
-public class LkTreeNode <T> {
+public class LkTreeNode <T extends Comparable> {
 
     private T value;
 
     private LkTreeNode left;
     private LkTreeNode right;
 
+    public LkTreeNode(T value) {
+        this.value = value;
+    }
 
     public LkTreeNode getLeft() {
         return left;
@@ -30,5 +33,10 @@ public class LkTreeNode <T> {
 
     public void setValue(T value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "["+value+" l: "+left+" r: "+right+"]";
     }
 }
