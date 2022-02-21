@@ -30,6 +30,18 @@ public class LkTree<T extends Comparable> {
         }
     }
 
+    public void leftVisit(Visitor<T> visitor) {
+        leftVisit(root, visitor);
+    }
+
+    private void leftVisit(LkTreeNode<T> node, Visitor<T> visitor) {
+        if(node != null) {
+            leftVisit(node.getLeft(), visitor);
+            visitor.visit(node.getValue());
+            leftVisit(node.getRight(), visitor);
+        }
+    }
+
     @Override
     public String toString() {
         return "tree: "+root;

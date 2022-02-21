@@ -8,8 +8,11 @@ public class Main {
         LkTree<Integer> tree = new LkTree<>();
         Random random = new Random();
         for(int i=0; i<5; i++) {
-            tree.add(random.nextInt(100));
+            int value = random.nextInt(100);
+            System.out.println(value);
+            tree.add(value);
         }
         System.out.println(tree);
+        tree.leftVisit(System.out::println);
     }
 }
